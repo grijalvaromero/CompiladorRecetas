@@ -1,0 +1,14 @@
+.fondo{
+    -fx-background-color:#1c1c1c;
+}
+.menu{
+    -fx-background-color:rgb(50,50,50);
+}
+.menu .label{
+    -fx-text-fill: #FFFFFF;
+}
+
+.progress-bar > .track {
+  -fx-text-box-border: #F69C95;
+  -fx-control-inner-background: #F69C95;
+}
