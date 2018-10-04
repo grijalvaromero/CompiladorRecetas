@@ -27,7 +27,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("principal.fxml"));
         primaryStage.setTitle("FoodCompiler");
-        primaryStage.setScene(new Scene(root, 960, 600));
+        primaryStage.setScene(new Scene(root, 970, 600));
       //  primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.show();
