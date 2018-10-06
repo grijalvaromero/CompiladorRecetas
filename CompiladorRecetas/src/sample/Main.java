@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import sample.controllers.Splash;
 
 
 public class Main extends Application {
@@ -25,7 +26,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("principal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/principal.fxml"));
         primaryStage.setTitle("FoodCompiler");
         primaryStage.setScene(new Scene(root, 970, 600));
       //  primaryStage.initStyle(StageStyle.TRANSPARENT);
