@@ -3,6 +3,9 @@ package sample.controllers;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.fxmisc.richtext.CodeArea;
@@ -21,6 +24,9 @@ import static sample.Constants.Configs.*;
 
 public class Controller extends Application {
     private Stage stage;
+    @FXML
+    HBox panesote;
+
     CodeArea codeArea = new CodeArea();
     @FXML protected void initialize(){
         codeArea.setParagraphGraphicFactory(LineNumberFactory.get(codeArea));
@@ -29,10 +35,10 @@ public class Controller extends Application {
                 .subscribe(ignore -> codeArea.setStyleSpans(0,
                         computeHighlighting(codeArea.getText())));
 
-        // when no longer need syntax highlighting and wish to clean up memory leaks
-        // run: `cleanupWhenNoLongerNeedIt.unsubscribe();`
-
         codeArea.replaceText(0, 0, sampleCode);
+        HBox.setHgrow(codeArea, Priority.ALWAYS);
+        panesote.getChildren().add(codeArea);
+
     }
     public void evtSalir(ActionEvent event){
         System.exit(0);
