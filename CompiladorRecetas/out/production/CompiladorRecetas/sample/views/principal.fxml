@@ -33,7 +33,10 @@
                         <MenuItem mnemonicParsing="false" text="Seleccionar Todo" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Ejecutar" />
+                  <Menu fx:id="btnEjecutar" mnemonicParsing="false" text="Ejecutar">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#ejecutar" text="Ejecutar" />
+                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Ayuda">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
@@ -48,7 +51,7 @@
                         <VBox>
                            <children>
                               <HBox fx:id="panesote" prefHeight="561.0" prefWidth="960.0" VBox.vgrow="ALWAYS" />
-                              <TextArea prefHeight="200.0" prefWidth="669.0">
+                              <TextArea fx:id="txtConsola" prefHeight="200.0" prefWidth="669.0">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
