@@ -39,7 +39,8 @@ public class Controller extends Application {
                .multiPlainChanges().successionEnds(Duration.ofMillis(500))
                 .subscribe(ignore -> codeArea.setStyleSpans(0,
                         computeHighlighting(codeArea.getText())));
-
+            //AGREGANDO LA CLASE CSS AL EDITOR
+        codeArea.getStyleClass().add("editor");
         codeArea.replaceText(0, 0, sampleCode);
         HBox.setHgrow(codeArea, Priority.ALWAYS);
         panesote.getChildren().add(codeArea);
@@ -69,16 +70,25 @@ public class Controller extends Application {
 
         String texto=codeArea.getText();
         String[] renglones=texto.split("\\n");
+
+
         for(int x=0;x<renglones.length;x++){
-            for(int y=0;y< Configs.EXPRESIONES.length;y++){
-                Pattern patron=Pattern.compile(Configs.EXPRESIONES[y]);
-                Matcher matcher=patron.matcher(renglones[x]);
-                if(!matcher.matches()){
+            boolean bandera=false;
+            if(!renglones[x].trim().equals("")){
+                for(int y=0;y< Configs.EXPRESIONES.length && bandera==false;y++){
+                    Pattern patron=Pattern.compile(Configs.EXPRESIONES[y]);
+                    Matcher matcher=patron.matcher(renglones[x]);
+                    if(matcher.matches()){
+                        bandera=true;
+                    }
+                }//llave for y
+                if(bandera==false){
                     txtConsola.setText(
                             txtConsola.getText() +" \n"+
-                            "Error de sintaxys en la linea "+(x+1));
+                                    "Error de sintaxys en la linea "+(x+1));
                 }
-            }//llave for y
+            }//llave if
+
         }//llave for
         long tFinal=System.currentTimeMillis()-tInicial;
         txtConsola.setText(txtConsola.getText()+"\n"+

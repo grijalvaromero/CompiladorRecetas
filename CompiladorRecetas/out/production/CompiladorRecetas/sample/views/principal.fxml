@@ -51,7 +51,7 @@
                         <VBox>
                            <children>
                               <HBox fx:id="panesote" prefHeight="561.0" prefWidth="960.0" VBox.vgrow="ALWAYS" />
-                              <TextArea fx:id="txtConsola" prefHeight="200.0" prefWidth="669.0">
+                              <TextArea fx:id="txtConsola" prefHeight="200.0" prefWidth="669.0" styleClass="consola">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>

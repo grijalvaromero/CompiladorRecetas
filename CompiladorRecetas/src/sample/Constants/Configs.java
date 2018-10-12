@@ -16,6 +16,7 @@ public final class Configs {
     public  static final String UserName="";
     public static final String[] KEYWORDS = new String[] {
         "kg","Harina","Sarten","Cucharada","Ingrediente",
+            "declara"
 
     };
 
@@ -38,26 +39,8 @@ public final class Configs {
     );
 
     public static final String sampleCode = String.join("\n", new String[] {
-            "package com.example;",
-            "",
-            "import java.util.*;",
-            "",
-            "public class Foo extends Bar implements Baz {",
-            "",
-            "    /*",
-            "     * multi-line comment",
-            "     */",
-            "    public static void main(String[] args) {",
-            "        // single-line comment",
-            "        for(String arg: args) {",
-            "            if(arg.length() != 0)",
-            "                System.out.println(arg);",
-            "            else",
-            "                System.err.println(\"Warning: empty string as argument\");",
-            "        }",
-            "    }",
-            "",
-            "}"
+       "declara x como Sarten", "declara j como Ingrediente"
+
     });
     public static StyleSpans<Collection<String>> computeHighlighting(String text) {
         Matcher matcher = PATTERN.matcher(text);
@@ -82,8 +65,10 @@ public final class Configs {
         return spansBuilder.create();
     }
     public static String[] EXPRESIONES={
-            "[A-Za-z]{1,3}",
-            "[0-10]{2}"
+            "declara [A-Za-z]+ como ",
+            "[0-9]{2}",
+            "/*ESTE ES UN COMENTARIO*/",
+            "//ESTE ES OTRO"
     };
 
 }

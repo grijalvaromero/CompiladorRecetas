@@ -20,7 +20,7 @@ public class Main extends Application {
             double progress=(100*i)/duracion;
             LauncherImpl.notifyPreloader(this,
                     new Splash.ProgressNotification(progress));
-            System.out.println((100*i)/duracion);
+            //System.out.println((100*i)/duracion);
         }//llave for
     }
 
