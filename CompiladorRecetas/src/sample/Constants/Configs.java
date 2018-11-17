@@ -16,7 +16,7 @@ public final class Configs {
     public  static final String UserName="";
     public static final String[] KEYWORDS = new String[] {
         "kg","Harina","Sarten","Cucharada","Ingrediente",
-            "declara"
+            "declara",
 
     };
 

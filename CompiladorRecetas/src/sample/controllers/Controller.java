@@ -16,7 +16,7 @@ import org.fxmisc.richtext.model.StyleSpansBuilder;
 import org.reactfx.Subscription;
 import sample.Constants.Configs;
 
-import java.io.File;
+import java.io.*;
 import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
@@ -39,6 +39,8 @@ public class Controller extends Application {
                .multiPlainChanges().successionEnds(Duration.ofMillis(500))
                 .subscribe(ignore -> codeArea.setStyleSpans(0,
                         computeHighlighting(codeArea.getText())));
+
+            //https://github.com/grijalvaromero/CompiladorRecetas
             //AGREGANDO LA CLASE CSS AL EDITOR
         codeArea.getStyleClass().add("editor");
         codeArea.replaceText(0, 0, sampleCode);
@@ -55,6 +57,23 @@ public class Controller extends Application {
         FileChooser.ExtensionFilter filtro= new FileChooser.ExtensionFilter("Archivos .food","*.food");
         of.getExtensionFilters().add(filtro);
         File file=of.showOpenDialog(stage);
+        if(file != null){
+            try {
+                BufferedReader br=new BufferedReader(new FileReader(file));
+                String todo="", aux="";
+                while( (aux=br.readLine()) != null){
+                    todo+=aux+"\n";
+                }
+                int c=codeArea.getText().length();
+                codeArea.replaceText(0,c,todo);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }//llave abrir
    @Override
     public void start(Stage stage) throws Exception {
